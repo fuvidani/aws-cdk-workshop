@@ -1,0 +1,38 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+	id 'com.bmuschko.docker-spring-boot-application' version '6.3.0'
+}
+
+group = 'com.tngtech'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
+dependencies {
+	implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.11.756'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'net.logstash.logback:logstash-logback-encoder:6.2'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+docker {
+	springBootApplication {
+		baseImage = 'openjdk:8-alpine'
+		ports = [9090, 8080]
+		images = ['cdk-workshop:0.0.1', 'cdk-workshop:latest']
+		jvmArgs = ['-Dspring.profiles.active=production', '-Xmx2048m']
+	}
+}

@@ -1,0 +1,30 @@
+{
+  "name": "shared-resources",
+  "version": "0.1.0",
+  "bin": {
+    "shared-resources": "bin/shared-resources.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": ""
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "^1.91.0",
+    "@types/jest": "^26.0.5",
+    "@types/node": "10.17.27",
+    "aws-cdk": "^1.91.0",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.3",
+    "ts-node": "^8.10.2",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-dynamodb": "^1.91.0",
+    "@aws-cdk/aws-ecs": "^1.91.0",
+    "@aws-cdk/aws-ssm": "^1.91.0",
+    "@aws-cdk/core": "^1.91.0",
+    "@aws-cdk/aws-ecr": "1.91.0"
+  }
+}

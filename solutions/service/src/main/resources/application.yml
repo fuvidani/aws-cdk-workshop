@@ -1,0 +1,6 @@
+logging:
+  config: "classpath:logback-structured.xml"
+  level:
+    root: INFO
+
+table-name: TABLE_NAME-environment-variable

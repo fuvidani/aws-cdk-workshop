@@ -1,0 +1,39 @@
+{
+  "description": "simple-fargate-service",
+  "repository": "https://github.com/TomKriel/aws-cdk-workshop",
+  "license": "none",
+  "name": "exercises",
+  "version": "0.1.0",
+  "bin": {
+    "exercises": "bin/app.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "^1.91.0",
+    "@types/jest": "^26.0.20",
+    "@types/node": "10.17.27",
+    "aws-cdk": "^1.91.0",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.1.3",
+    "ts-node": "^8.10.2",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-cloudwatch": "^1.91.0",
+    "@aws-cdk/aws-dynamodb": "^1.91.0",
+    "@aws-cdk/aws-ecr": "^1.91.0",
+    "@aws-cdk/aws-ecr-assets": "^1.91.0",
+    "@aws-cdk/aws-ecs": "^1.91.0",
+    "@aws-cdk/aws-ecs-patterns": "^1.91.0",
+    "@aws-cdk/aws-ssm": "^1.91.0",
+    "@aws-cdk/core": "^1.91.0",
+    "@aws-cdk/cloudformation-include": "^1.91.0",
+    "@types/js-yaml": "^3.12.5",
+    "js-yaml": "^3.14.0"
+  }
+}

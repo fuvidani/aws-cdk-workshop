@@ -1,0 +1,17 @@
+!jest.config.js
+*.d.ts
+node_modules
+misc.xml
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+cdk.context.json
+
+# Java/Gradle related files
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Intellij
+.idea

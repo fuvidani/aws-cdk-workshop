@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <fieldName>timestamp</fieldName>
+                </timestamp>
+                <logLevel/>
+                <message/>
+                <pattern>
+                    <pattern>
+                        {
+                        "logger": {
+                        "name": "%logger",
+                        "method_name": "%method",
+                        "thread_name": "%thread",
+                        "file": "%file",
+                        "line": "%line"
+                        }
+                        }
+                    </pattern>
+                </pattern>
+                <nestedField>
+                    <fieldName>error</fieldName>
+                    <providers>
+                        <throwableClassName>
+                            <fieldName>kind</fieldName>
+                            <useSimpleClassName>false</useSimpleClassName>
+                        </throwableClassName>
+                        <stackTrace>
+                            <fieldName>stack</fieldName>
+                        </stackTrace>
+                    </providers>
+                </nestedField>
+            </providers>
+        </encoder>
+    </appender>
+
+    <root level="warn">
+        <appender-ref ref="Console"/>
+    </root>
+
+</configuration>

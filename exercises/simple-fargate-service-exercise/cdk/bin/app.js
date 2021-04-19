@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const cdk = require("@aws-cdk/core");
+const simple_fargate_service_stack_1 = require("../lib/simple-fargate-service-stack");
+const core_1 = require("@aws-cdk/core");
+if (!process.env.AUTHOR) { // We prefix every stack with the name of the participiant.
+    throw new Error('Author name in stack name is missing. Execute export AUTHOR={yourName}.');
+}
+const STACK_NAME = `${process.env.AUTHOR}-cdk-workshop-simple-fargate-service`;
+const app = new cdk.App(); // Entrypoint of your CDK application. This is the root in the tree of constructs.
+const stack = new simple_fargate_service_stack_1.SimpleFargateServiceStack(app, STACK_NAME, {
+    env: {
+        account: '530798195059',
+        region: process.env.AWS_REGION,
+    },
+    stackName: STACK_NAME
+});
+core_1.Tags.of(stack).add('cdk-workshop', 'exercise');
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXBwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUNBLHFDQUFxQztBQUNyQyxzRkFBZ0Y7QUFDaEYsd0NBQXFDO0FBRXJDLElBQUcsQ0FBQyxPQUFPLENBQUMsR0FBRyxDQUFDLE1BQU0sRUFBRSxFQUFFLDJEQUEyRDtJQUNqRixNQUFNLElBQUksS0FBSyxDQUFDLHlFQUF5RSxDQUFDLENBQUE7Q0FDN0Y7QUFFRCxNQUFNLFVBQVUsR0FBRyxHQUFHLE9BQU8sQ0FBQyxHQUFHLENBQUMsTUFBTSxzQ0FBc0MsQ0FBQztBQUUvRSxNQUFNLEdBQUcsR0FBRyxJQUFJLEdBQUcsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxDQUFDLGtGQUFrRjtBQUU3RyxNQUFNLEtBQUssR0FBRyxJQUFJLHdEQUF5QixDQUFDLEdBQUcsRUFBRSxVQUFVLEVBQUU7SUFDekQsR0FBRyxFQUFFO1FBQ0QsT0FBTyxFQUFFLGNBQWM7UUFDdkIsTUFBTSxFQUFFLE9BQU8sQ0FBQyxHQUFHLENBQUMsVUFBVTtLQUNqQztJQUNELFNBQVMsRUFBRSxVQUFVO0NBQ3hCLENBQUMsQ0FBQztBQUNILFdBQUksQ0FBQyxFQUFFLENBQUMsS0FBSyxDQUFDLENBQUMsR0FBRyxDQUFDLGNBQWMsRUFBRSxVQUFVLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIiMhL3Vzci9iaW4vZW52IG5vZGVcbmltcG9ydCAqIGFzIGNkayBmcm9tICdAYXdzLWNkay9jb3JlJztcbmltcG9ydCB7IFNpbXBsZUZhcmdhdGVTZXJ2aWNlU3RhY2sgfSBmcm9tICcuLi9saWIvc2ltcGxlLWZhcmdhdGUtc2VydmljZS1zdGFjayc7XG5pbXBvcnQgeyBUYWdzIH0gZnJvbSAnQGF3cy1jZGsvY29yZSc7XG5cbmlmKCFwcm9jZXNzLmVudi5BVVRIT1IpIHsgLy8gV2UgcHJlZml4IGV2ZXJ5IHN0YWNrIHdpdGggdGhlIG5hbWUgb2YgdGhlIHBhcnRpY2lwaWFudC5cbiAgICB0aHJvdyBuZXcgRXJyb3IoJ0F1dGhvciBuYW1lIGluIHN0YWNrIG5hbWUgaXMgbWlzc2luZy4gRXhlY3V0ZSBleHBvcnQgQVVUSE9SPXt5b3VyTmFtZX0uJylcbn1cblxuY29uc3QgU1RBQ0tfTkFNRSA9IGAke3Byb2Nlc3MuZW52LkFVVEhPUn0tY2RrLXdvcmtzaG9wLXNpbXBsZS1mYXJnYXRlLXNlcnZpY2VgO1xuXG5jb25zdCBhcHAgPSBuZXcgY2RrLkFwcCgpOyAvLyBFbnRyeXBvaW50IG9mIHlvdXIgQ0RLIGFwcGxpY2F0aW9uLiBUaGlzIGlzIHRoZSByb290IGluIHRoZSB0cmVlIG9mIGNvbnN0cnVjdHMuXG5cbmNvbnN0IHN0YWNrID0gbmV3IFNpbXBsZUZhcmdhdGVTZXJ2aWNlU3RhY2soYXBwLCBTVEFDS19OQU1FLCB7XG4gICAgZW52OiB7XG4gICAgICAgIGFjY291bnQ6ICc1MzA3OTgxOTUwNTknLFxuICAgICAgICByZWdpb246IHByb2Nlc3MuZW52LkFXU19SRUdJT04sXG4gICAgfSxcbiAgICBzdGFja05hbWU6IFNUQUNLX05BTUVcbn0pO1xuVGFncy5vZihzdGFjaykuYWRkKCdjZGstd29ya3Nob3AnLCAnZXhlcmNpc2UnKTtcbiJdfQ==
