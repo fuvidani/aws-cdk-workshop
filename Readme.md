@@ -12,8 +12,8 @@ The slides are available in the Slides folder
 ## How to deploy exercises and access the deployed webpage
 + First install the CDK cli: `npm install -g aws-cdk`.
 + Go to `exercises/cdk` and run `npm install`.
-+ Deploy to AWS // TODO: Adapt to the right credentials  
- `AUTHOR=<Your Unique Name (e.g. neuerm)> AWS_PROFILE=<profile specified in $HOME/.aws/config> AWS_REGION=eu-west-1 cdk deploy`.
++ Deploy to AWS
+ `AUTHOR=<Your Unique Name (e.g. neuerm)> AWS_PROFILE=cdk-workshop AWS_REGION=eu-west-1 cdk deploy`.
 + Deployment takes some time. Some exercises can be completed by running `cdk synth` or `cdk diff`.
 + (After exercise 1A) The deployment command should print the URL of the deployed webpage as an Cloudformation output.
 

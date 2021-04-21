@@ -13,7 +13,7 @@ const app = new cdk.App();
 
 const stack = new SimpleFargateServiceStack(app, STACK_NAME, {
     env: {
-        account: '123456789012', // TODO: Insert account ID
+        account: '834253078283',
         region: process.env.AWS_REGION,
     },
     stackName: STACK_NAME
