@@ -1,6 +1,6 @@
-import { expect as expectCDK, haveResourceLike } from '@aws-cdk/assert';
-import { SimpleFargateServiceStack } from '../lib/simple-fargate-service-stack';
-import { App } from '@aws-cdk/core';
+import {expect as expectCDK, haveResourceLike} from '@aws-cdk/assert';
+import {SimpleFargateServiceStack} from '../lib/simple-fargate-service-stack';
+import {App} from '@aws-cdk/core';
 
 // Exercise 3B:
 describe('Memory and CPU', () => {
@@ -15,7 +15,9 @@ describe('Memory and CPU', () => {
 
         // then
         // Exercise 3B: Make the right expectation
-        expectCDK(stack).to(haveResourceLike("AWS::ECS::TaskDefinition", {}));
+        expectCDK(stack).to(haveResourceLike("AWS::ECS::TaskDefinition", {
+            Cpu: '512',
+        }));
     });
 
     it('should correctly depend on the region for eu-central-1', () => {
@@ -29,7 +31,9 @@ describe('Memory and CPU', () => {
 
         // then
         // Exercise 3B: Make the right expectation
-        expectCDK(stack).to(haveResourceLike("AWS::ECS::TaskDefinition", {}));
+        expectCDK(stack).to(haveResourceLike("AWS::ECS::TaskDefinition", {
+            Cpu: '256',
+        }));
     })
 });
 
@@ -40,7 +44,7 @@ test('Test retention of logs to be at most one week', () => {
 
     // when
     const stack = new SimpleFargateServiceStack(app, 'MyTestStack', {
-        env: { account: "123", region: "eu-west-1" }
+        env: {account: "123", region: "eu-west-1"}
     });
 
     // then
